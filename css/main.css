@@ -1,0 +1,61 @@
+@import url('libs/normalize.min.css');
+@import url('libs/fonts.css');
+
+
+/* ==============================================
+				  DOM SELECTORS
+ ============================================== */
+body {
+	font: 17px/1.3em 'PTSansRegular', sans-serif;
+	color: #767575
+}
+img {
+	max-width: 100%
+}
+
+
+
+
+/* ==============================================
+				  	FONTS
+ ============================================== */
+/* PFDinDisplayPro */
+.font__pfdin--reg {
+	font-family: 'PFDinDisplayPro-Regular'
+}
+.font__pfdin--black {
+	font-family: 'PFDinDisplayPro-Black'
+}
+.font__pfdin--bold {
+	font-family: 'PFDinDisplayPro-Bold'
+}
+
+/* Tornado */
+.font__tornado--c {
+	font-family: 'TornadoC'
+}
+.font__tornado--ultra {
+  	font-family: 'TornadoUltraBlackC'
+}
+
+/* DINPro */
+.font__dinpro--reg {
+	font-family: 'DINPro-Regular'
+}
+.font__dinpro--med {
+	font-family: 'DINPro-Medium'
+}
+.font__dinpro--bold {
+	font-family: 'DINPro-Bold'
+}
+
+
+
+
+/* ==============================================
+					FRAMES
+ ============================================== */
+.container {
+	width: 1260px;
+	margin: 0 auto
+}
