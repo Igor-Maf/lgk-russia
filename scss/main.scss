@@ -1,0 +1,31 @@
+@import "../bower_components/susy/sass/susy";
+@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
+
+@import "config/mixins.scss";
+@import "config/variables.scss";
+@import "config/normalize.scss";
+@import "config/fonts.scss";
+@import "config/palette.scss";
+
+@import "modules/header.scss";
+
+
+/* ==============================================
+				  DOM SELECTORS
+ ============================================== */
+body {
+	font: #{$text-size}/1.3em $ptsans_reg, sans-serif;
+	color: $grey
+}
+img {
+	max-width: 100%
+}
+
+
+/* ==============================================
+					FRAMES
+ ============================================== */
+.container {
+	width: $width-container;
+	margin: 0 auto
+}

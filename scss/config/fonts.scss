@@ -1,0 +1,34 @@
+/* ==============================================
+                FONTS INCLUDE
+ ============================================== */
+/* PTSans */
+@include font-face('PTSansRegular', 'PTS55F_W', 'PTSans', 'serif');
+
+/* PFDinDisplayPro */
+@include font-face('PFDinDisplayPro-Regular', 'PFDinDisplayPro-Regular', 'PFDinDisplayPro');
+@include font-face('PFDinDisplayPro-Black', 'PFDinDisplayPro-Black', 'PFDinDisplayPro');
+@include font-face('PFDinDisplayPro-Bold', 'PFDinDisplayPro-Bold', 'PFDinDisplayPro');
+
+/* Tornado */
+@include font-face('TornadoC', 'TornadoC', 'Tornado');
+@include font-face('TornadoUltraBlackC', 'TornadoUltraBlackC', 'Tornado');
+
+/* DINPro */
+@include font-face('DINPro-Regular', 'DINPro-Regular', 'DINPro');
+@include font-face('DINPro-Medium', 'DINPro-Medium', 'DINPro');
+@include font-face('DINPro-Bold', 'DINPro-Bold', 'DINPro');
+
+
+/*  variables for fonts */
+$ptsans_reg: 'PTSansRegular';
+
+$pfdin_reg: 'PFDinDisplayPro-Regular';
+$pfdin_black: 'PFDinDisplayPro-Black';
+$pfdin_bold: 'PFDinDisplayPro-Bold';
+
+$tornado_c: 'TornadoC';
+$tornado_ultra-black: 'TornadoUltraBlackC';
+
+$dinpro_reg: 'DINPro-Regular';
+$dinpro_med: 'DINPro-Medium';
+$dinpro_bold: 'DINPro-Bold';

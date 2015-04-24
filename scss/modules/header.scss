@@ -1,0 +1,157 @@
+/* rules for extend */
+.inline-block_vertical-align {
+	display: inline-block;
+	vertical-align: middle
+}
+.right-border_light-blue {
+	border-right: 1px solid $blue-light
+}
+
+/* ==============================================
+				  HEADER STYLES
+ ============================================== */
+.header {
+    min-height: 6em;
+	@include linear-gradient(to right, $bg-gradient-from, $bg-gradient-to);
+	padding: 0 15px;
+ 	text-transform: uppercase;
+ 	color: #fff;
+
+	/* ========== HEADER COMMON STYLES ========== */
+ 	a {
+		color: #fff;
+		text-decoration: none
+	}
+
+	ul {
+		list-style: none;
+		padding-left: 0
+	}
+
+	[class$='--col'] {
+		@extend .inline-block_vertical-align
+	}
+
+	/* ========== HEADER LEFT BLOCK ========== */
+    @include e('left') {
+        margin: .4em 0;
+
+		@include m('col') {
+	        margin-right: 6px
+	    }
+    }
+
+    /* ========== HEADER RIGHT BLOCK ========== */
+    @include e('right') {
+    	font-family: $dinpro_reg;
+    	line-height: 1em;
+
+    	@include m('col') {}
+
+    	[class$='__item'] {
+    		margin-right: -4px;
+			@extend .inline-block_vertical-align
+		}
+    }
+
+	/* ===== languages switcher ===== */
+    .lang {
+		@include e('link') {
+			@include m('active') {
+				color: $blue-light
+			}
+		}
+    }
+}
+
+
+/* ========== HEADER LEFT BLOCK ========== */
+
+/* ===== logo ===== */
+.logo {
+	@include e('link') {}
+		@include e('image') {}
+}
+
+/* ===== siteinfo ===== */
+.siteinfo {
+	@include e('name') {
+		font: 19px $tornado_c;
+  	  	margin: .5em 0 0
+	}
+		@include e('label') {
+			font-family: $tornado_ultra-black
+		}
+	@include e('desc') {
+		font: 7px/1em $tornado_c;
+		margin-top: .6em
+	}
+}
+	
+
+/* ========== HEADER RIGHT BLOCK ========== */
+
+/* ===== commons ===== */
+.menu, .lang {}
+	.menu__item, .lang__item {}
+
+/* ===== menu ===== */
+.menu {
+	font-size: 15px;
+
+	@include e('list') {
+		margin: 0
+	}
+		@include e('item') {
+			position: relative;
+			padding: 0 35px;
+			line-height: 3.5em;
+
+			@extend .right-border_light-blue;
+			&:first-child {
+				// &:after {
+				// 	position: absolute;
+				// 	content: "";
+				// 	border-left: 240px solid #0DA1D2;
+				// 	border-top: 10px solid #0DA1D2;
+				// 	border-right: 10px solid transparent;
+				// 	left: 0;
+				// 	top: 140%;
+				// }
+			}
+			&:last-child {
+				border: none
+			}
+		}
+}
+
+/* ===== languages switcher ===== */
+.lang {
+	margin-left: 80px;
+	font-size: 12px;
+
+	@include e('item') {
+		padding: 0 5px;
+
+		&:first-child {
+			@extend .right-border_light-blue;
+		}
+	}
+	@include e('link') {}
+}
+
+
+.clear {
+	margin: 0 -15px;
+
+	@include e('col') {
+		display: inline-block;
+		margin-right: -4px;
+		
+		@include m('empty') {
+			
+		}
+		@include m('transparent') {
+		}
+	}
+}

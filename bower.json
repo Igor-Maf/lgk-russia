@@ -1,0 +1,13 @@
+{
+  "name": "lgk-russia",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Odessa-OneTeam/lgk-russia",
+  "authors": [
+    "Igor Maf <knjaz092@mail.ru>"
+  ],
+  "description": "frontend",
+  "dependencies": {
+    "breakpoint-sass": "latest",
+    "susy": "latest"
+  }
+}
