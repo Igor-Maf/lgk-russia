@@ -7,10 +7,10 @@ var gulp = require('gulp'),
 	connect = require('gulp-connect'),
 	autoprefixer = require('gulp-autoprefixer'),
 	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	jshint = require('gulp-jshint'),
+	uglify = require('gulp-uglify');
 
-
-// server connect
 gulp.task('connect', function() {
 	connect.server({
 		root: 'app',
@@ -18,16 +18,12 @@ gulp.task('connect', function() {
 	})
 });
 
-
-// html
 gulp.task('html', function() {
 	gulp.src('*.html')
 		.pipe(gulp.dest('app/'))
 		.pipe(connect.reload());
 });
 
-
-// css
 gulp.task('css', function() {
 	gulp.src('scss/main.scss')
 		.pipe(sourcemaps.init())
@@ -42,8 +38,18 @@ gulp.task('css', function() {
 		.pipe(connect.reload());
 });
 
+gulp.task('js', function() {
+	gulp.src('js/*.js')
+		.pipe(jshint())
+        .pipe(jshint.reporter('default'))
+		.pipe(uglify())
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest('app/js/'))
+		.pipe(connect.reload());
+})
 
-// images
 gulp.task('images', function() {
 	gulp.src('images/**')
 		.pipe(gulp.dest('app/images/'))
@@ -51,22 +57,18 @@ gulp.task('images', function() {
 });
 
 
-// fonts
 gulp.task('fonts', function() {
 	gulp.src('fonts/**')
 		.pipe(gulp.dest('app/fonts/'))
 		.pipe(connect.reload());
 });
 
-
-// watch
 gulp.task('watch', function() {
-	gulp.watch('scss/**/*.scss', ['css'])
 	gulp.watch('*.html', ['html'])
+	gulp.watch('scss/**/*.scss', ['css'])
+	gulp.watch('js/**/*.js', ['js'])
 	gulp.watch('images/**', ['images'])
 	gulp.watch('fonts/**', ['fonts'])
 })
 
-
-// default
-gulp.task('default', ['connect', 'html', 'css', 'images', 'fonts', 'watch']);
+gulp.task('default', ['connect', 'html', 'css', 'js', 'images', 'fonts', 'watch']);

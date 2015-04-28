@@ -26,7 +26,9 @@ $headerTextColor: #fff;
 	}
 
 	ul {
-		list-style: none;
+		&:not(.deep__list) {
+			list-style: none
+		}
 		padding-left: 0
 	}
 
@@ -50,7 +52,7 @@ $headerTextColor: #fff;
 
     	@include m('col') {}
 
-    	[class$='__item'] {
+    	[class*='__item']:not(.deep__item) {
     		margin-right: -4px;
 			@extend .inline-block_vertical-align
 		}
@@ -111,7 +113,7 @@ $headerTextColor: #fff;
 		}
 			@include e('link') {
 				padding: 1em 35px;
-				@extend .right-border_light-blue;
+				@extend .right-border_light-blue
 			}
 }
 
@@ -120,40 +122,59 @@ $headerTextColor: #fff;
 	background: $blue-darken;
 
 	.menu__link {
-		border-right: none
+		border-right-color: $blue-darken
 	}
 
 	@include e('list') {
+		display: none;
 		position: absolute;
 		top: 100%;
 		background: $blue-darken;
-		font: 16px/1.5 $pfdin_bold;
-	  	padding: 2em 0;
+		font-family: $pfdin_bold;
+		line-height: 1.5;
+	  	padding: 2em 20px 1.5em;
 		text-transform: none;
-
-		-webkit-column-count: 2;
-		-moz-column-count: 2;
-		-o-column-count: 2;
-		column-count: 2;
-
-		-webkit-column-gap: 45%;
-		-moz-column-gap: 45%;
-		-o-column-gap: 45%;
-		column-gap: 45%;
-
-		-webkit-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, .5);
+    	column-count: 2;
 		box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, .5);
+		z-index: 1;
+	}
 
-		z-index: 1
+		@include e('item') {
+			margin: 0 20px
+		}
+			@include e('link') {}
+
+		[class$='__item'] {
+			min-width: 320px;
+			font-size: 16px;
+			border-top: 1px solid $blue-middle;
+
+			&:not(.deep) {
+				padding: 5px 15px
+			}
+		}
+}
+
+/* ===== deep level in dropdown section menu ===== */
+.deep {
+	&.drop__item {
+		padding: 0 15px
+	}
+	.drop__link {
+		line-height: 2.15
+	}
+
+	@include e('list') {
+		font-family: $pfdin_reg;
+		margin: 0 -15px;
+		list-style: disc inside
 	}
 		@include e('item') {
-			padding: 5px 35px;
-
+			padding: 5px 0 5px 20px
 		}
-			@include e('link') {
-				
-			}
+			@include e('link') {}
 }
+
 
 /* ===== languages switcher ===== */
 .lang {
@@ -164,7 +185,7 @@ $headerTextColor: #fff;
 		padding: 0 5px;
 
 		&:first-child {
-			@extend .right-border_light-blue;
+			@extend .right-border_light-blue
 		}
 	}
 		@include e('link') {}
@@ -196,6 +217,7 @@ $bodyColor: #fff;
 			  	width: 53.9%
 			}
 		}
+
 		@include m('transparent') {
 		  	position: relative;
 		  	width: 19.66%;
